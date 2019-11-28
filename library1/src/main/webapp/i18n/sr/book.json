@@ -1,0 +1,25 @@
+{
+  "library1App": {
+    "book": {
+      "home": {
+        "title": "Books",
+        "createLabel": "Kreiraj novi Book",
+        "createOrEditLabel": "Kreirajte ili izmenite Book",
+        "notFound": "No Book found"
+      },
+      "created": "Kreiran je novi Book pod nazivom {{ param }}",
+      "updated": "Book pod nazivom {{ param }} je ažuriran",
+      "deleted": "Book pod nazivom {{ param }} je obrisan",
+      "delete": {
+        "question": "Da li ste sigurni da želite da obrišete Book pod nazivom {{ id }}?"
+      },
+      "detail": {
+        "title": "Book"
+      },
+      "name": "Name",
+      "content": "Content",
+      "createdAt": "Created At",
+      "author": "Author"
+    }
+  }
+}

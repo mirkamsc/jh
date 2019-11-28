@@ -1,0 +1,17 @@
+entity Author {
+	id Number required,
+	name String required
+}
+entity Book {
+	id Number required,
+	name String required,
+	content String,
+	createdAt ZonedDateTime required 
+}
+relationship OneToMany {
+	Author{authorBook} to Book{author(id)}
+}
+
+paginate Book with pagination
+dto * with mapstruct
+service all with serviceImpl
