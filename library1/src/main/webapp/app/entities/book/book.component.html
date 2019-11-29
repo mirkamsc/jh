@@ -1,9 +1,9 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="library1App.book.home.title">Books</span>
+        <span jhiTranslate="libraryApp.book.home.title">Books</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-book" [routerLink]="['/book/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="library1App.book.home.createLabel">
+            <span  jhiTranslate="libraryApp.book.home.createLabel">
             Create new Book
             </span>
         </button>
@@ -11,29 +11,38 @@
     <jhi-alert></jhi-alert>
     <br/>
     <div class="alert alert-warning" *ngIf="books?.length === 0">
-        <span jhiTranslate="library1App.book.home.notFound">No books found</span>
+        <span jhiTranslate="libraryApp.book.home.notFound">No books found</span>
     </div>
     <div class="table-responsive" *ngIf="books?.length > 0">
         <table class="table table-striped">
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="name"><span jhiTranslate="library1App.book.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="content"><span jhiTranslate="library1App.book.content">Content</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="createdAt"><span jhiTranslate="library1App.book.createdAt">Created At</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="authorId"><span jhiTranslate="library1App.book.author">Author</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="isbn"><span jhiTranslate="libraryApp.book.isbn">Isbn</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="name"><span jhiTranslate="libraryApp.book.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="publishYear"><span jhiTranslate="libraryApp.book.publishYear">Publish Year</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="copies"><span jhiTranslate="libraryApp.book.copies">Copies</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cover"><span jhiTranslate="libraryApp.book.cover">Cover</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="publisher.name"><span jhiTranslate="libraryApp.book.publisher">Publisher</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let book of books ;trackBy: trackId">
                 <td><a [routerLink]="['/book', book.id, 'view' ]">{{book.id}}</a></td>
+                <td>{{book.isbn}}</td>
                 <td>{{book.name}}</td>
-                <td>{{book.content}}</td>
-                <td>{{book.createdAt | date:'medium'}}</td>
+                <td>{{book.publishYear}}</td>
+                <td>{{book.copies}}</td>
                 <td>
-                    <div *ngIf="book.authorId">
-                        <a [routerLink]="['../author', book.authorId , 'view' ]" >{{book.authorId}}</a>
+                    <a *ngIf="book.cover" (click)="openFile(book.coverContentType, book.cover)">
+                        <img [src]="'data:' + book.coverContentType + ';base64,' + book.cover" style="max-height: 30px;" alt="book image"/>
+                    </a>
+                    <span *ngIf="book.cover">{{book.coverContentType}}, {{byteSize(book.cover)}}</span>
+                </td>
+                <td>
+                    <div *ngIf="book.publisher">
+                        <a [routerLink]="['../publisher', book.publisher?.id, 'view' ]" >{{book.publisher?.name}}</a>
                     </div>
                 </td>
                 <td class="text-right">

@@ -57,7 +57,7 @@ management:
 
 spring:
   application:
-    name: library1
+    name: library
   profiles:
     # The commented value for `active` can be replaced with valid Spring profiles to load.
     # Otherwise, it will be filled in by maven when building the JAR file
@@ -87,13 +87,13 @@ spring:
       enabled: false
   task:
     execution:
-      thread-name-prefix: library-1-task-
+      thread-name-prefix: library-task-
       pool:
         core-size: 2
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: library-1-scheduling-
+      thread-name-prefix: library-scheduling-
       pool:
         size: 2
   thymeleaf:
@@ -118,7 +118,7 @@ info:
 
 jhipster:
   clientApp:
-    name: 'library1App'
+    name: 'libraryApp'
   # By default CORS is disabled. Uncomment to enable.
   # cors:
   #     allowed-origins: "*"
@@ -128,11 +128,11 @@ jhipster:
   #     allow-credentials: true
   #     max-age: 1800
   mail:
-    from: library1@localhost
+    from: library@localhost
   swagger:
     default-include-pattern: /api/.*
-    title: library1 API
-    description: library1 API documentation
+    title: library API
+    description: library API documentation
     version: 0.0.1
     terms-of-service-url:
     contact-name:

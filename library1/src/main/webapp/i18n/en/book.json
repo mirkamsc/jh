@@ -1,5 +1,5 @@
 {
-  "library1App": {
+  "libraryApp": {
     "book": {
       "home": {
         "title": "Books",
@@ -16,9 +16,12 @@
       "detail": {
         "title": "Book"
       },
+      "isbn": "Isbn",
       "name": "Name",
-      "content": "Content",
-      "createdAt": "Created At",
+      "publishYear": "Publish Year",
+      "copies": "Copies",
+      "cover": "Cover",
+      "publisher": "Publisher",
       "author": "Author"
     }
   }

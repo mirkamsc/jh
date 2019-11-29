@@ -1,5 +1,5 @@
 {
-  "library1App": {
+  "libraryApp": {
     "author": {
       "home": {
         "title": "Authors",
@@ -16,8 +16,9 @@
       "detail": {
         "title": "Author"
       },
-      "name": "Name",
-      "authorBook": "Author Book"
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "book": "Book"
     }
   }
 }

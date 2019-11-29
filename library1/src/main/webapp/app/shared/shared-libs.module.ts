@@ -11,10 +11,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [NgbModule, InfiniteScrollModule, CookieModule.forRoot(), FontAwesomeModule, ReactiveFormsModule],
   exports: [FormsModule, CommonModule, NgbModule, NgJhipsterModule, InfiniteScrollModule, FontAwesomeModule, ReactiveFormsModule]
 })
-export class Library1SharedLibsModule {
+export class LibrarySharedLibsModule {
   static forRoot() {
     return {
-      ngModule: Library1SharedLibsModule
+      ngModule: LibrarySharedLibsModule
     };
   }
 }

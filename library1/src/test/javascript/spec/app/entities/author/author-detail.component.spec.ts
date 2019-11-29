@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 
-import { Library1TestModule } from '../../../test.module';
+import { LibraryTestModule } from '../../../test.module';
 import { AuthorDetailComponent } from 'app/entities/author/author-detail.component';
 import { Author } from 'app/shared/model/author.model';
 
@@ -15,7 +15,7 @@ describe('Component Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [Library1TestModule],
+        imports: [LibraryTestModule],
         declarations: [AuthorDetailComponent],
         providers: [{ provide: ActivatedRoute, useValue: route }]
       })

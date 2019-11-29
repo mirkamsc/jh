@@ -3,8 +3,12 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+import { JhiAlertService } from 'ng-jhipster';
 import { IAuthor, Author } from 'app/shared/model/author.model';
 import { AuthorService } from './author.service';
+import { IBook } from 'app/shared/model/book.model';
+import { BookService } from 'app/entities/book';
 
 @Component({
   selector: 'jhi-author-update',
@@ -13,24 +17,41 @@ import { AuthorService } from './author.service';
 export class AuthorUpdateComponent implements OnInit {
   isSaving: boolean;
 
+  books: IBook[];
+
   editForm = this.fb.group({
     id: [],
-    name: [null, [Validators.required]]
+    firstName: [null, [Validators.required, Validators.maxLength(50)]],
+    lastName: [null, [Validators.required, Validators.maxLength(50)]]
   });
 
-  constructor(protected authorService: AuthorService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected jhiAlertService: JhiAlertService,
+    protected authorService: AuthorService,
+    protected bookService: BookService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit() {
     this.isSaving = false;
     this.activatedRoute.data.subscribe(({ author }) => {
       this.updateForm(author);
     });
+    this.bookService
+      .query()
+      .pipe(
+        filter((mayBeOk: HttpResponse<IBook[]>) => mayBeOk.ok),
+        map((response: HttpResponse<IBook[]>) => response.body)
+      )
+      .subscribe((res: IBook[]) => (this.books = res), (res: HttpErrorResponse) => this.onError(res.message));
   }
 
   updateForm(author: IAuthor) {
     this.editForm.patchValue({
       id: author.id,
-      name: author.name
+      firstName: author.firstName,
+      lastName: author.lastName
     });
   }
 
@@ -52,7 +73,8 @@ export class AuthorUpdateComponent implements OnInit {
     return {
       ...new Author(),
       id: this.editForm.get(['id']).value,
-      name: this.editForm.get(['name']).value
+      firstName: this.editForm.get(['firstName']).value,
+      lastName: this.editForm.get(['lastName']).value
     };
   }
 
@@ -67,5 +89,23 @@ export class AuthorUpdateComponent implements OnInit {
 
   protected onSaveError() {
     this.isSaving = false;
+  }
+  protected onError(errorMessage: string) {
+    this.jhiAlertService.error(errorMessage, null, null);
+  }
+
+  trackBookById(index: number, item: IBook) {
+    return item.id;
+  }
+
+  getSelected(selectedVals: Array<any>, option: any) {
+    if (selectedVals) {
+      for (let i = 0; i < selectedVals.length; i++) {
+        if (option.id === selectedVals[i].id) {
+          return selectedVals[i];
+        }
+      }
+    }
+    return option;
   }
 }

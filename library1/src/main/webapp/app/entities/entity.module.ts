@@ -5,12 +5,24 @@ import { RouterModule } from '@angular/router';
   imports: [
     RouterModule.forChild([
       {
+        path: 'publisher',
+        loadChildren: './publisher/publisher.module#LibraryPublisherModule'
+      },
+      {
         path: 'author',
-        loadChildren: './author/author.module#Library1AuthorModule'
+        loadChildren: './author/author.module#LibraryAuthorModule'
+      },
+      {
+        path: 'client',
+        loadChildren: './client/client.module#LibraryClientModule'
       },
       {
         path: 'book',
-        loadChildren: './book/book.module#Library1BookModule'
+        loadChildren: './book/book.module#LibraryBookModule'
+      },
+      {
+        path: 'borrowed-book',
+        loadChildren: './borrowed-book/borrowed-book.module#LibraryBorrowedBookModule'
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])
@@ -20,4 +32,4 @@ import { RouterModule } from '@angular/router';
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class Library1EntityModule {}
+export class LibraryEntityModule {}

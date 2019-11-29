@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { JhiLanguageService } from 'ng-jhipster';
 import { JhiLanguageHelper } from 'app/core';
 
-import { Library1SharedModule } from 'app/shared';
+import { LibrarySharedModule } from 'app/shared';
 import {
   BookComponent,
   BookDetailComponent,
@@ -17,13 +17,13 @@ import {
 const ENTITY_STATES = [...bookRoute, ...bookPopupRoute];
 
 @NgModule({
-  imports: [Library1SharedModule, RouterModule.forChild(ENTITY_STATES)],
+  imports: [LibrarySharedModule, RouterModule.forChild(ENTITY_STATES)],
   declarations: [BookComponent, BookDetailComponent, BookUpdateComponent, BookDeleteDialogComponent, BookDeletePopupComponent],
   entryComponents: [BookComponent, BookUpdateComponent, BookDeleteDialogComponent, BookDeletePopupComponent],
   providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class Library1BookModule {
+export class LibraryBookModule {
   constructor(private languageService: JhiLanguageService, private languageHelper: JhiLanguageHelper) {
     this.languageHelper.language.subscribe((languageKey: string) => {
       if (languageKey !== undefined) {

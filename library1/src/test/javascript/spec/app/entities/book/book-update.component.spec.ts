@@ -4,7 +4,7 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 
-import { Library1TestModule } from '../../../test.module';
+import { LibraryTestModule } from '../../../test.module';
 import { BookUpdateComponent } from 'app/entities/book/book-update.component';
 import { BookService } from 'app/entities/book/book.service';
 import { Book } from 'app/shared/model/book.model';
@@ -17,7 +17,7 @@ describe('Component Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [Library1TestModule],
+        imports: [LibraryTestModule],
         declarations: [BookUpdateComponent],
         providers: [FormBuilder]
       })

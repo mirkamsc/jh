@@ -3,7 +3,7 @@ import { Renderer, ElementRef } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Observable, of, throwError } from 'rxjs';
 
-import { Library1TestModule } from '../../../../test.module';
+import { LibraryTestModule } from '../../../../test.module';
 import { PasswordResetInitComponent } from 'app/account/password-reset/init/password-reset-init.component';
 import { PasswordResetInitService } from 'app/account/password-reset/init/password-reset-init.service';
 import { EMAIL_NOT_FOUND_TYPE } from 'app/shared';
@@ -15,7 +15,7 @@ describe('Component Tests', () => {
 
     beforeEach(() => {
       fixture = TestBed.configureTestingModule({
-        imports: [Library1TestModule],
+        imports: [LibraryTestModule],
         declarations: [PasswordResetInitComponent],
         providers: [
           FormBuilder,

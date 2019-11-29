@@ -9,7 +9,8 @@ entity Book {
 	createdAt ZonedDateTime required 
 }
 relationship OneToMany {
-	Author{authorBook} to Book{author(id)}
+	Author{authorBook} to Book{author(id)},
+	User to Book{user(login)}
 }
 
 paginate Book with pagination

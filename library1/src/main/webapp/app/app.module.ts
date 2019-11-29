@@ -11,12 +11,12 @@ import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
 import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
 import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
-import { Library1SharedModule } from 'app/shared';
-import { Library1CoreModule } from 'app/core';
-import { Library1AppRoutingModule } from './app-routing.module';
-import { Library1HomeModule } from './home/home.module';
-import { Library1AccountModule } from './account/account.module';
-import { Library1EntityModule } from './entities/entity.module';
+import { LibrarySharedModule } from 'app/shared';
+import { LibraryCoreModule } from 'app/core';
+import { LibraryAppRoutingModule } from './app-routing.module';
+import { LibraryHomeModule } from './home/home.module';
+import { LibraryAccountModule } from './account/account.module';
+import { LibraryEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
@@ -32,13 +32,13 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
       i18nEnabled: true,
       defaultI18nLang: 'en'
     }),
-    Library1SharedModule.forRoot(),
-    Library1CoreModule,
-    Library1HomeModule,
-    Library1AccountModule,
+    LibrarySharedModule.forRoot(),
+    LibraryCoreModule,
+    LibraryHomeModule,
+    LibraryAccountModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
-    Library1EntityModule,
-    Library1AppRoutingModule
+    LibraryEntityModule,
+    LibraryAppRoutingModule
   ],
   declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   providers: [
@@ -65,7 +65,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
   ],
   bootstrap: [JhiMainComponent]
 })
-export class Library1AppModule {
+export class LibraryAppModule {
   constructor(private dpConfig: NgbDatepickerConfig) {
     this.dpConfig.minDate = { year: moment().year() - 100, month: 1, day: 1 };
   }

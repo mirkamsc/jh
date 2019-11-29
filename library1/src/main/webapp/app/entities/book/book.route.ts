@@ -39,7 +39,7 @@ export const bookRoute: Routes = [
     data: {
       authorities: ['ROLE_USER'],
       defaultSort: 'id,asc',
-      pageTitle: 'library1App.book.home.title'
+      pageTitle: 'libraryApp.book.home.title'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -51,7 +51,7 @@ export const bookRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'library1App.book.home.title'
+      pageTitle: 'libraryApp.book.home.title'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -63,7 +63,7 @@ export const bookRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'library1App.book.home.title'
+      pageTitle: 'libraryApp.book.home.title'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -75,7 +75,7 @@ export const bookRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'library1App.book.home.title'
+      pageTitle: 'libraryApp.book.home.title'
     },
     canActivate: [UserRouteAccessService]
   }
@@ -90,7 +90,7 @@ export const bookPopupRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'library1App.book.home.title'
+      pageTitle: 'libraryApp.book.home.title'
     },
     canActivate: [UserRouteAccessService],
     outlet: 'popup'

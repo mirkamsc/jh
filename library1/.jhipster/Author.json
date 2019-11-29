@@ -2,28 +2,43 @@
     "name": "Author",
     "fields": [
         {
-            "fieldName": "name",
+            "fieldName": "firstName",
             "fieldType": "String",
             "fieldValidateRules": [
-                "required"
-            ]
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
         }
     ],
     "relationships": [
         {
-            "relationshipType": "one-to-many",
+            "relationshipType": "many-to-many",
             "otherEntityName": "book",
             "otherEntityRelationshipName": "author",
-            "relationshipName": "authorBook"
+            "relationshipName": "book",
+            "otherEntityField": "id",
+            "ownerSide": false
         }
     ],
-    "changelogDate": "20191128145704",
+    "changelogDate": "20191129152308",
     "entityTableName": "author",
-    "dto": "mapstruct",
-    "pagination": "no",
+    "dto": "no",
+    "pagination": "pagination",
     "service": "serviceImpl",
-    "jpaMetamodelFiltering": false,
+    "jpaMetamodelFiltering": true,
     "fluentMethods": true,
     "clientRootFolder": "",
-    "applications": "*"
+    "applications": [
+        "library"
+    ]
 }

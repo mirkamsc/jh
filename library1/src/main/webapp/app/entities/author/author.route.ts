@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
+import { JhiPaginationUtil, JhiResolvePagingParams } from 'ng-jhipster';
 import { UserRouteAccessService } from 'app/core';
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -32,9 +33,13 @@ export const authorRoute: Routes = [
   {
     path: '',
     component: AuthorComponent,
+    resolve: {
+      pagingParams: JhiResolvePagingParams
+    },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'library1App.author.home.title'
+      defaultSort: 'id,asc',
+      pageTitle: 'libraryApp.author.home.title'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -46,7 +51,7 @@ export const authorRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'library1App.author.home.title'
+      pageTitle: 'libraryApp.author.home.title'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -58,7 +63,7 @@ export const authorRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'library1App.author.home.title'
+      pageTitle: 'libraryApp.author.home.title'
     },
     canActivate: [UserRouteAccessService]
   },
@@ -70,7 +75,7 @@ export const authorRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'library1App.author.home.title'
+      pageTitle: 'libraryApp.author.home.title'
     },
     canActivate: [UserRouteAccessService]
   }
@@ -85,7 +90,7 @@ export const authorPopupRoute: Routes = [
     },
     data: {
       authorities: ['ROLE_USER'],
-      pageTitle: 'library1App.author.home.title'
+      pageTitle: 'libraryApp.author.home.title'
     },
     canActivate: [UserRouteAccessService],
     outlet: 'popup'

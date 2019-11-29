@@ -4,7 +4,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable, of } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { Library1TestModule } from '../../../test.module';
+import { LibraryTestModule } from '../../../test.module';
 import { BookDeleteDialogComponent } from 'app/entities/book/book-delete-dialog.component';
 import { BookService } from 'app/entities/book/book.service';
 
@@ -18,7 +18,7 @@ describe('Component Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [Library1TestModule],
+        imports: [LibraryTestModule],
         declarations: [BookDeleteDialogComponent]
       })
         .overrideTemplate(BookDeleteDialogComponent, '')
