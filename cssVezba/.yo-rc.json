@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.mycomp.library"
+    },
+    "jhipsterVersion": "6.1.2",
+    "applicationType": "monolith",
+    "baseName": "cssVezba",
+    "packageName": "com.mycomp.library",
+    "packageFolder": "com/mycomp/library",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "OTFhM2E0OGUwNjNhNDhkMGRhN2E1ZjVlNjEyMDNkNjhkNmIzZjk1ZjU2NmU5NjBiZjlkMWJmMjY0NjM3ZmJlMzdjNzQyZTE1ZTAyZjU0MzAzOTM3OTdiOTc5MjBiOTI2NDhjYzE4YzgxYTM5NTRlZTJkZjM3NTZjNTQwYzU3YWU=",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "flatly",
+    "clientThemeVariant": "primary",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false
+  }
+}

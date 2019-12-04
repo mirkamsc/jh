@@ -1,0 +1,117 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="myUserLabel">
+                Create or edit a User
+            </h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div  class="form-group row" [hidden]="!user.id">
+                    <span class="ui-float-label">
+                        <input id="id-input" type="text" size="30" formControlName="id" readonly pInputText>
+                        <label for="id-input">ID</label>
+                    </span>
+                </div>
+
+                <div class="form-group row">
+                    <span class="ui-float-label">
+                        <input id="login-input" type="text" size="30" name="login" formControlName="login" pInputText>
+                        <label for="login-input">Login</label>
+                    </span>
+
+
+                    <div *ngIf="editForm.get('login').invalid && (editForm.get('login').dirty || editForm.get('login').touched)">
+                        <small class="form-text text-danger"
+                        *ngIf="editForm.get('login').errors.required">
+                            This field is required.
+                        </small>
+
+                        <small class="form-text text-danger"
+                        *ngIf="editForm.get('login').errors.maxlength"
+                       >
+                            This field cannot be longer than 50 characters.
+                        </small>
+
+                        <small class="form-text text-danger"
+                        *ngIf="editForm.get('login').errors.pattern">
+                            This field can only contain letters, digits and e-mail addresses.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <span class="ui-float-label">
+                        <input id="first-input" type="text" size="30" name="firstName" formControlName="firstname" pInputText>
+                        <label for="first-input">First name</label>
+                    </span>
+
+                    <div *ngIf="editForm.get('firstName').invalid && (editForm.get('firstName').dirty || editForm.get('firstName').touched)">
+                        <small class="form-text text-danger"
+                        *ngIf="editForm.get('firstName').errors.maxlength"
+                       >
+                            This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <span class="ui-float-label">
+                        <input id="last-input" type="text" size="30" name="lastName" formControlName="lastName" pInputText>
+                        <label for="last-input">Last name</label>
+                    </span>
+                </div>
+
+                <div class="form-group row" action="#!">
+                    <span class="ui-float-label">
+                         <input id="email-input" type="text" size="30" name="email" formControlName="email" pInputText>
+                        <label for="email-input">Username</label>
+                    </span>
+                    <div *ngIf="editForm.get('email').invalid && (editForm.get('email').dirty || editForm.get('email').touched)">
+                        <small class="form-text text-danger"
+                        *ngIf="editForm.get('email').errors.required">
+                            This field is required.
+                        </small>
+
+                        <small class="form-text text-danger"
+                        *ngIf="editForm.get('email').errors.maxlength"
+                       >
+                            This field cannot be longer than 100 characters.
+                        </small>
+
+                        <small class="form-text text-danger"
+                        *ngIf="editForm.get('email').errors.minlength"
+                       >
+                            This field is required to be at least 5 characters.
+                        </small>
+
+                        <small class="form-text text-danger"
+                        *ngIf="editForm.get('email').errors.email">
+                            Your email is invalid.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="activated">
+                        <input class="form-check-input" [disabled]="user.id === null" type="checkbox" id="activated" name="activated"  formControlName="activated">
+                        <span>Activated</span>
+                    </label>
+                </div>
+
+                <div class="form-inline">
+                    <label>Profiles</label>
+                    <select class="form-control" multiple name="authority" formControlName="authorities" class="form-control form-control-sm">
+                        <option *ngFor="let authority of authorities" [value]="authority">{{authority}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span
+                   >Cancel</span>
+                </button>
+                <button type="submit" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
